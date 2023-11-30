@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --makro-primary: #0036B3;
+  --makro-secondary: #FFF200;
+  --makro-info: #EBECFC;
+  --makro-danger: #FF0033;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.btn-secondary {
+  @apply text-primary bg-secondary hover:bg-info focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg text-sm px-4 py-3 text-center;
+}
