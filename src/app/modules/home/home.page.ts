@@ -1,20 +1,16 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { SwiperContainer } from 'swiper/swiper-element';
 import { SwiperOptions } from 'swiper/types';
 import { SwiperDirective } from '../../shared/directives';
-import { DecimalPipe, NgClass, NgForOf, NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    SwiperDirective,
-    NgForOf,
-    NgIf,
-    UpperCasePipe,
-    DecimalPipe,
-    NgClass
+    CommonModule,
+    SwiperDirective
   ],
   templateUrl: './home.paget.html'
 })
@@ -24,19 +20,19 @@ export class HomePage {
   public products: any[] = [
     {
       id: 1,
-      brand: 'PURA VIDA',
-      name: 'Mezcla láctea PURA VIDA',
-      slug: 'mezcla-lactea-pura-vida',
-      presentation: 'Plancha de 24 latas x 395 g. c/u',
-      image: 'https://dummyimage.com/200x200',
+      brand: 'CORONA',
+      name: 'Cerveza CORONA Extra',
+      slug: 'cerveza-corona-extra',
+      presentation: 'Pack de 6 unids. x 330 ml. c/u',
+      image: 'https://files.makro.pe/product/image/BA3_PnnNhLR.png',
       rating: 5,
       prices: [
         {
           currency: 'S/',
-          price: 61.20,
-          description: 'x unid.',
+          price: 24.90,
+          description: 'A partir de 4 unids.',
           fromUnit: 1,
-          salient: false
+          salient: true
         }
       ]
     },
@@ -46,7 +42,7 @@ export class HomePage {
       name: 'Gaseosa INKA KOLA',
       slug: 'gaseosa-inka-kola',
       presentation: 'Pack de 12 unids. x 600 ml. c/u',
-      image: 'https://dummyimage.com/200x200',
+      image: 'https://files.makro.pe/product/image/8_o7AdXEA.png',
       rating: 5,
       prices: [
         {
