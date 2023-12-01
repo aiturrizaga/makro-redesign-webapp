@@ -194,8 +194,10 @@
   </div>
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex items-baseline justify-between gap-x-2 border-b border-gray-200 pb-6 pt-0 md:pt-10">
-      <h1 class="text-xl md:text-3xl font-bold tracking-tight text-gray-900">Resultados para Aceite</h1>
+    <div class="flex items-baseline justify-between gap-x-2 border-b border-gray-200 pb-6 pt-8 md:pt-10">
+      <h1 class="text-xl md:text-3xl font-bold tracking-tight text-gray-900">
+        Resultados para {{query | titlecase}}
+      </h1>
 
       <div class="flex items-center">
         <div class="relative inline-block text-left">
@@ -234,12 +236,12 @@
       </div>
     </div>
 
-    <section class="pb-24 pt-6">
+    <section class="pb-12 pt-6">
       <h2 class="sr-only">Products</h2>
 
       <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         <!-- Filters -->
-        <form class="hidden lg:block">
+        <div class="hidden lg:block">
           <div class="border-b border-gray-200 pt-0 pb-6">
             <h3 class="-my-3 flow-root">
               <!-- Expand/collapse section button -->
@@ -403,13 +405,15 @@
               </div>
             </div>
           </div>
-        </form>
+        </div>
 
         <!-- Product grid -->
         <div class="lg:col-span-3">
           <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+              <app-product-card *ngFor="let product of products" [product]="product"
+                                (increaseQuantity)="saveCartItem($event)"
+                                (decreaseQuantity)="saveCartItem($event)"></app-product-card>
             </div>
           </div>
         </div>
@@ -418,4 +422,21 @@
   </div>
 
   <div *ngIf="showSortMenu" (click)="toggleSortMenu()" class="fixed inset-0"></div>
+</div>
+
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
+  <div class="flex justify-center">
+    <img src="https://files.makro.pe/banner/image/Banner_1184x128.jpg" alt="Tarjeta Oh!" class="rounded-lg hidden sm:block">
+    <img src="https://files.makro.pe/banner/image/Banner_328x136.jpg" alt="Tarjeta Oh!" class="rounded-lg block sm:hidden">
+  </div>
+</div>
+
+<div class="w-full">
+  <a href="https://makro.economax.pe/registro/consumidor" target="_blank">
+    <img src="https://www.makro.pe/assets/images/Banner_registro_Desktop.png" alt="Registro de cliente"
+         class="w-full object-cover hidden sm:block">
+    <img src="https://www.makro.pe/assets/images/Banner_registro_Mobile.png" alt="Registro de cliente"
+         class="w-full object-cover block sm:hidden">
+  </a>
 </div>

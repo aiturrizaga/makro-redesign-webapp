@@ -4,6 +4,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/interfaces/product.interface';
 import { ProductCardComponent } from '../../shared/components/product-card/product-card.component';
+import { ShopCartService } from '../../core/services/shop-cart.service';
+import { CartItem } from '../../core/interfaces';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -57,16 +60,25 @@ export class SearchPage implements OnInit {
   public showSortMenu: boolean = false;
 
   public products: Product[] = [];
+  public query: string = '';
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private shopCartService: ShopCartService,
+              private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(res => this.query = res['q']);
   }
 
   ngOnInit(): void {
+    window.scroll(0, 0);
     this.getProducts();
   }
 
   getProducts(): void {
     this.productService.getAll().subscribe(res => this.products = res);
+  }
+
+  saveCartItem(event: CartItem): void {
+    this.shopCartService.saveItem(event);
   }
 
   toggleOffCanvasMenu(): void {

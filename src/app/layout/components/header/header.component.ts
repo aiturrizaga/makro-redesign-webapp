@@ -1,16 +1,19 @@
 import { Component, effect } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ShopCartService } from '../../../core/services/shop-cart.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CartItem } from '../../../core/interfaces';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     RouterLink,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './header.component.html',
   animations: [
@@ -45,11 +48,19 @@ export class HeaderComponent {
   public isSlideOver: boolean = false;
   public isSlideOverDialog: boolean = false;
 
-  constructor(private shopCartService: ShopCartService) {
+  public searchText: FormControl = new FormControl<string>('');
+
+  constructor(private shopCartService: ShopCartService,
+              private router: Router) {
     effect(() => {
       this.totalItems = this.shopCartService.cart().items.length;
       this.totalAmount = this.shopCartService.cart().totalAmount;
     });
+  }
+
+  goToSearchPage():void {
+    const query = this.searchText.value;
+    this.router.navigate(['search'], {queryParams: {q: query}}).then();
   }
 
   toggleCategoryButton(): void {

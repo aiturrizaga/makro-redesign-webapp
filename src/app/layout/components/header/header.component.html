@@ -38,22 +38,20 @@
 
         <div class="h-8 border-r-2 border-white hidden md:block"></div>
 
-        <div class="hidden md:block">
-          <button type="button" (click)="toggleSlideOver()"
-                  class="relative inline-flex items-center text-white focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 me-1.5" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="10" cy="20.5" r="1"/>
-              <circle cx="18" cy="20.5" r="1"/>
-              <path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/>
-            </svg>
-            <span class="sr-only">Notifications</span>
-            <div *ngIf="totalItems"
-                 class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-              {{totalItems}}
-            </div>
-          </button>
-        </div>
+        <button type="button" (click)="toggleSlideOver()"
+                class="relative inline-flex items-center text-white focus:outline-none me-2 md:me-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 me-1.5" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="20.5" r="1"/>
+            <circle cx="18" cy="20.5" r="1"/>
+            <path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/>
+          </svg>
+          <span class="sr-only">Notifications</span>
+          <div *ngIf="totalItems"
+               class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+            {{totalItems}}
+          </div>
+        </button>
       </div>
       <div class="items-center justify-between hidden w-full md:flex md:w-1/2 md:order-1">
         <div class="flex w-full">
@@ -69,8 +67,8 @@
               <span class="text-xs font-medium">San Juan de Lurigancho</span>
             </div>
           </button>
-          <div class="relative w-full">
-            <input type="search"
+          <form (ngSubmit)="goToSearchPage()" class="relative w-full">
+            <input type="search" [formControl]="searchText"
                    class="block p-3 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg focus:outline-none"
                    placeholder="Busca tus productos favoritos y más ...">
             <button type="submit"
@@ -82,7 +80,7 @@
               </svg>
               <span class="sr-only">Search</span>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </nav>
@@ -198,8 +196,9 @@
                 <div class="ml-3 flex h-7 items-center">
                   <button type="button" (click)="toggleSlideOver()" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Close panel</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                         aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                   </button>
                 </div>
@@ -211,7 +210,8 @@
                       role="list" class="-my-6 divide-y divide-gray-200">
                     <li *ngFor="let item of cartItems" class="flex py-6">
                       <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img [src]="item.productImage" [alt]="item.productName" class="h-full w-full object-cover object-center">
+                        <img [src]="item.productImage" [alt]="item.productName"
+                             class="h-full w-full object-cover object-center">
                       </div>
 
                       <div class="ml-4 flex flex-1 flex-col">
@@ -229,7 +229,8 @@
 
                           <div class="flex">
                             <button type="button" (click)="removeCartItem(item.productId)"
-                                    class="font-medium text-danger hover:text-red-500">Eliminar</button>
+                                    class="font-medium text-danger hover:text-red-500">Eliminar
+                            </button>
                           </div>
                         </div>
                       </div>
