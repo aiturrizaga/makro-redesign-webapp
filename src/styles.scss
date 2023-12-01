@@ -19,8 +19,20 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.btn-primary {
+  @apply text-white bg-primary hover:bg-blue-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center;
+
+  &.btn-large {
+    @apply font-bold text-lg px-8 py-3;
+  }
+}
+
+.btn-outline-primary {
+  @apply text-primary bg-white hover:bg-primary hover:text-white border-2 border-primary focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center;
+}
+
 .btn-secondary {
-  @apply text-primary bg-secondary hover:bg-info focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg text-sm px-4 py-3 text-center;
+  @apply text-primary bg-secondary hover:bg-info focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center;
 
   &.btn-large {
     @apply font-bold text-lg px-8 py-3;

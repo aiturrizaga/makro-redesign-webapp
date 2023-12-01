@@ -16,7 +16,7 @@
           <img src="assets/images/logos/makro-yellow-logo.webp" class="h-6 mr-3" alt="Makro">
         </a>
       </div>
-      <div class="flex md:order-2">
+      <div class="flex justify-center items-center md:order-2 gap-x-4">
         <button type="button" *ngIf="false"
                 class="btn-secondary mr-3 hidden md:block">
           Registro de Clientes
@@ -32,6 +32,25 @@
             <div class="flex flex-col items-start">
               <span class="text-sm">Hola,</span>
               <span class="text-sm font-medium">Inicia sesión</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="h-8 border-r-2 border-white"></div>
+
+        <div class="hidden md:block">
+          <button type="button"
+                  class="relative inline-flex items-center text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 me-1.5" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="20.5" r="1"/>
+              <circle cx="18" cy="20.5" r="1"/>
+              <path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            <div
+              class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+              20
             </div>
           </button>
         </div>

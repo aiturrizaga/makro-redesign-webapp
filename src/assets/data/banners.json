@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Makro tu aliado del ahorro al por mayor",
+    "url": "assets/images/banners/banner_web_01.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Navidad con los mejores precios",
+    "url": "assets/images/banners/banner_web_02.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ahorrando al por mayor con marcas de calidad",
+    "url": "assets/images/banners/banner_web_03.jpg"
+  },
+  {
+    "id": 4,
+    "name": "En Agora Shop te llevamos tus compras",
+    "url": "assets/images/banners/banner_web_04.jpg"
+  }
+]
