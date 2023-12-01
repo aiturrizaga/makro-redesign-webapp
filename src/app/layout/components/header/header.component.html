@@ -36,10 +36,10 @@
           </button>
         </div>
 
-        <div class="h-8 border-r-2 border-white"></div>
+        <div class="h-8 border-r-2 border-white hidden md:block"></div>
 
         <div class="hidden md:block">
-          <button type="button"
+          <button type="button" (click)="toggleSlideOver()"
                   class="relative inline-flex items-center text-white focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 me-1.5" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -48,9 +48,9 @@
               <path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/>
             </svg>
             <span class="sr-only">Notifications</span>
-            <div
-              class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-              20
+            <div *ngIf="totalItems"
+                 class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+              {{totalItems}}
             </div>
           </button>
         </div>
@@ -88,7 +88,7 @@
     </nav>
   </div>
 
-  <div class="bg-info">
+  <div class="bg-info hidden md:block">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-2 md:px-10">
       <div class="flex items-center">
         <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
@@ -181,4 +181,98 @@
     </div>
   </div>
 </header>
+
+<div *ngIf="isSlideOverDialog" class="relative z-20">
+  <div @opacity *ngIf="isSlideOver" class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity"></div>
+
+  <div class="fixed inset-0 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+      <div (click)="toggleSlideOver()" class="fixed inset-0"></div>
+      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+
+        <div @translateX *ngIf="isSlideOver" class="pointer-events-auto w-screen max-w-2xl">
+          <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+            <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+              <div class="flex items-start justify-between">
+                <h2 class="text-lg font-medium text-gray-900">Mi Carrito de Compras</h2>
+                <div class="ml-3 flex h-7 items-center">
+                  <button type="button" (click)="toggleSlideOver()" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Close panel</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <div class="flow-root">
+                  <ul *ngIf="cartItems && cartItems.length > 0; else emptyShoppingCart"
+                      role="list" class="-my-6 divide-y divide-gray-200">
+                    <li *ngFor="let item of cartItems" class="flex py-6">
+                      <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                        <img [src]="item.productImage" [alt]="item.productName" class="h-full w-full object-cover object-center">
+                      </div>
+
+                      <div class="ml-4 flex flex-1 flex-col">
+                        <div>
+                          <div class="flex justify-between text-sm md:text-base font-medium text-gray-900">
+                            <h3>
+                              <a routerLink="">{{item.productName}}</a>
+                            </h3>
+                            <p class="ml-4">S/ {{item.price | number:'1.2-5'}}</p>
+                          </div>
+                          <p class="mt-1 text-xs md:text-sm text-gray-500">{{item.productPresentation}}</p>
+                        </div>
+                        <div class="flex flex-1 items-end justify-between text-xs md:text-sm">
+                          <p class="text-gray-500">Cantidad: {{item.quantity}}</p>
+
+                          <div class="flex">
+                            <button type="button" (click)="removeCartItem(item.productId)"
+                                    class="font-medium text-danger hover:text-red-500">Eliminar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <ng-template #emptyShoppingCart>
+                    <div class="flex justify-center">
+                      <div>El carrito esta vacio, empieza agregando productos para verlos en tu carrito</div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="cartItems && cartItems.length > 0"
+                 class="border-t border-gray-200 py-6 px-4 sm:px-6">
+              <div class="flex justify-between text-base font-medium text-gray-900">
+                <p>Total</p>
+                <p>S/ {{totalAmount | number:'1.2-5'}}</p>
+              </div>
+              <p *ngIf="false" class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+              <div class="mt-6">
+                <a routerLink=""
+                   class="flex items-center justify-center rounded-md border border-primary rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white hover:bg-blue-700">
+                  Continuar
+                </a>
+              </div>
+              <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                <p>
+                  ó
+                  <button type="button" (click)="toggleSlideOver()"
+                          class="font-medium text-primary hover:text-blue-700">
+                    Seguir comprando
+                    <span aria-hidden="true"> &rarr;</span>
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

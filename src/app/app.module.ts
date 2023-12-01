@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { register } from 'swiper/element/bundle';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 register();
 
@@ -15,6 +16,7 @@ register();
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule
   ],

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartItem } from '../../../core/interfaces';
+import { Product } from '../../../core/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-card',
@@ -10,7 +11,7 @@ import { CartItem } from '../../../core/interfaces';
   templateUrl: './product-card.component.html'
 })
 export class ProductCardComponent {
-  @Input({required: true}) product: any;
+  @Input({required: true}) product?: Product;
   @Output() increaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
   @Output() decreaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
@@ -26,11 +27,16 @@ export class ProductCardComponent {
     this.decreaseQuantity.emit(this.getCartItem());
   }
 
-  getCartItem() {
+  getCartItem(): CartItem {
+    if (!this.product) {
+      throw 'Product not defined in card';
+    }
     const price: number = this.getDefaultPrice(this.product.prices);
     const cartItem: CartItem = {
       productId: this.product.id,
       productName: this.product.name,
+      productImage: this.product.image,
+      productPresentation: this.product.presentation,
       price: price,
       quantity: this.quantity,
       subtotal: price * this.quantity

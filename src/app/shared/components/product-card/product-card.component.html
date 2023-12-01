@@ -1,4 +1,5 @@
-<div class="bg-white h-full flex flex-col rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg">
+<div *ngIf="product"
+     class="bg-white h-full flex flex-col rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg">
   <img class="h-40 rounded w-full object-contain object-center mt-4 mb-6"
        [src]="product.image" [alt]="product.name">
   <div class="px-4 flex-1">
@@ -66,7 +67,8 @@
       </div>
     </div>
 
-    <button type="button" class="btn-primary border border-primary w-full mt-4" (click)="increase()" *ngIf="quantity === 0">
+    <button type="button" class="btn-primary border border-primary w-full mt-4" (click)="increase()"
+            *ngIf="quantity === 0">
       Agregar
     </button>
 

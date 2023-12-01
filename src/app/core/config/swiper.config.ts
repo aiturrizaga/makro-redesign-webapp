@@ -2,6 +2,8 @@ import { SwiperOptions } from 'swiper/types';
 
 export const swiperConfig: SwiperOptions = {
   navigation: true,
+  slidesPerGroup: 1,
+  slidesPerView: 1,
   pagination: {
     clickable: true
   },
