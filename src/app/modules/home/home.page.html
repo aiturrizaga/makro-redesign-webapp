@@ -1,10 +1,14 @@
-<swiper-container appSwiper #swiper [config]="bannerCarouselConfig" init="false">
-  <swiper-slide *ngFor="let banner of banners">
-    <img [src]="banner.url" [alt]="banner.name" class="block w-full object-contain">
-  </swiper-slide>
-</swiper-container>
+<!-- Banner section -->
+<section>
+  <swiper-container appSwiper #swiper [config]="bannerCarouselConfig" init="false">
+    <swiper-slide *ngFor="let banner of banners">
+      <img [src]="banner.url" [alt]="banner.name" class="block w-full object-contain">
+    </swiper-slide>
+  </swiper-container>
+</section>
 
-<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10 mt-8">
+<!-- Categories & Products section -->
+<section class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10 mt-8">
   <div class="flex flex-wrap w-full mb-8">
     <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
       <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Makroahorro</h1>
@@ -19,10 +23,9 @@
                         (decreaseQuantity)="saveCartItem($event)"></app-product-card>
     </div>
   </div>
+</section>
 
-</div>
-
-
+<!-- Jumbotron section -->
 <section class="max-w-7xl mx-auto px-5 md:px-16 lg:px-8 pt-14 pb-10 md:pt-14">
   <div class="w-full text-center border bg-primary rounded-xl p-10 py-16 md:p-20">
     <p class="mb-6 text-info font-medium text-2xl">¿Aún no eres cliente?</p>
