@@ -1,10 +1,11 @@
-import { Component, effect } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ShopCartService } from '../../../core/services/shop-cart.service';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { CartItem } from '../../../core/interfaces';
+import { CartItem, Category } from '../../../core/interfaces';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryService } from '../../../core/services/category.service';
 
 @Component({
   selector: 'app-header',
@@ -39,7 +40,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     ])
   ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public activeCategoryButton: boolean = false;
   public totalItems: number = 0;
   public totalAmount: number = 0;
@@ -50,7 +51,11 @@ export class HeaderComponent {
 
   public searchText: FormControl = new FormControl<string>('');
 
+  public featuredCategories: Category[] = [];
+  public shortcutCategories: Category[] = [];
+
   constructor(private shopCartService: ShopCartService,
+              private categoryService: CategoryService,
               private router: Router) {
     effect(() => {
       this.totalItems = this.shopCartService.cart().items.length;
@@ -58,7 +63,16 @@ export class HeaderComponent {
     });
   }
 
-  goToSearchPage():void {
+  ngOnInit(): void {
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categoryService.getFeatured().subscribe(res => this.featuredCategories = res);
+    this.categoryService.getShortcut().subscribe(res => this.shortcutCategories = res);
+  }
+
+  goToSearchPage(): void {
     const query = this.searchText.value;
     this.router.navigate(['search'], {queryParams: {q: query}}).then();
   }

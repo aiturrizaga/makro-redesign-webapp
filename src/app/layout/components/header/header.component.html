@@ -100,14 +100,11 @@
               </svg>
             </button>
           </li>
-          <li>
-            <a routerLink="" class="text-primary">Makroahorro</a>
+          <li *ngFor="let category of shortcutCategories">
+            <a routerLink="" class="text-primary">{{ category.name }}</a>
           </li>
           <li>
             <a routerLink="" class="text-primary">Tiendas</a>
-          </li>
-          <li>
-            <a routerLink="" class="text-primary">Makro cree en ti</a>
           </li>
         </ul>
       </div>
@@ -155,7 +152,7 @@
             </a>
           </li>
         </ul>
-        <ul class="hidden md:block">
+        <ul>
           <li>
             <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
               <div class="font-semibold">Menestras</div>

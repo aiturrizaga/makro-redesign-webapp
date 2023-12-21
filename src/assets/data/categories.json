@@ -1,0 +1,112 @@
+[
+  {
+    "id": "3a7963f2-3f33-453a-a6d7-a738dab90441",
+    "name": "Tarjeta Oh!",
+    "slug": "tarjeta-oh",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "00ae789a-d01f-41eb-a4d5-fbaf6dba81b4",
+    "name": "Hogar",
+    "slug": "hogar",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "edb60c26-8ae1-466f-990d-988fda82b8b7",
+    "name": "Menestras",
+    "slug": "menestras",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "b6856d0a-e10f-4147-a99b-a8542a0c2495",
+    "name": "Electrodomesticos",
+    "slug": "electrodomesticos",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "753a0718-5297-459e-882e-3cdd68b8bba4",
+    "name": "Reposteria",
+    "slug": "reposteria",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "3c2d8e35-ecfc-4506-acd0-2a6f1f3b6e26",
+    "name": "Lacteos",
+    "slug": "lacteos",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "0bd77c06-5dc1-4862-997c-71066b321168",
+    "name": "Marcas propias",
+    "slug": "marcas-propias",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "ff7e6a3c-83c3-43a0-8dca-b947d663bf90",
+    "name": "Refrigerados",
+    "slug": "refrigerados",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "4c4425e2-63be-4b6d-b691-536e4e523cf7",
+    "name": "Bebidas",
+    "slug": "bebidas",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": false,
+    "featured": true
+  },
+  {
+    "id": "aa19a527-01d7-4ac3-bdbe-2167647ce44f",
+    "name": "Makroahorro",
+    "slug": "makroahorro",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": true,
+    "featured": true
+  },
+  {
+    "id": "ed7fd939-280c-4770-8fb7-1b268b438c5b",
+    "name": "Makro cree en ti",
+    "slug": "makro-cree-en-ti",
+    "description": "",
+    "banner": "",
+    "icon": "",
+    "shortcut": true,
+    "featured": true
+  }
+]

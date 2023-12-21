@@ -1,1 +1,5 @@
-<p>category-detail works!</p>
+<div *ngIf="category">
+  <h3 class="text-lg font-bold text-gray-900 mb-2">{{category.name}}</h3>
+  <p class="mb-2">{{category.description}}</p>
+  <p>The tab JavaScript swaps classes to control the content visibility and styling.</p>
+</div>
