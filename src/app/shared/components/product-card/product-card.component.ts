@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CartItem } from '../../../core/interfaces';
 import { Product } from '../../../core/interfaces/product.interface';
 import { RouterLink } from '@angular/router';
+import { ProductUtil } from '../../utils/product.util';
 
 @Component({
   selector: 'app-product-card',
@@ -17,6 +18,9 @@ export class ProductCardComponent {
   @Output() decreaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
   public quantity: number = 0;
+
+  constructor(public productUtil: ProductUtil) {
+  }
 
   increase(): void {
     this.quantity++;
@@ -32,7 +36,7 @@ export class ProductCardComponent {
     if (!this.product) {
       throw 'Product not defined in card';
     }
-    const price: number = this.getDefaultPrice(this.product.prices);
+    const price: number = this.productUtil.getDefaultPrice(this.product.prices);
     const cartItem: CartItem = {
       productId: this.product.id,
       productName: this.product.name,
@@ -45,16 +49,4 @@ export class ProductCardComponent {
     return cartItem;
   }
 
-  getDefaultPrice(prices: any[]): number {
-    const item = prices.find(res => res.default);
-    return item.price;
-  }
-
-  getFlatPrices(prices: any[]): any[] {
-    return prices.filter(res => !res.salient);
-  }
-
-  getSalientPrice(prices: any[]): any[] {
-    return prices.filter(res => res.salient);
-  }
 }

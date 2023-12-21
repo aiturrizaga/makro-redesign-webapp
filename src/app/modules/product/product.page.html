@@ -40,7 +40,7 @@
         <p class="leading-relaxed">{{product.presentation}}</p>
 
         <div class="flex flex-col mt-4" *ngIf="product.prices && product.prices.length > 0">
-          <div *ngFor="let item of getFlatPrices(product.prices)" class="flex items-end justify-between mb-2">
+          <div *ngFor="let item of productUtil.getFlatPrices(product.prices)" class="flex items-end justify-between mb-2">
             <div class="text-xl font-bold text-gray-600"
                  *ngIf="item.visible"
                  [ngClass]="{'text-blue-700': item.description === 'OH'}">
@@ -55,7 +55,7 @@
           </div>
 
           <div *ngIf="product.prices && product.prices.length > 0">
-            <div *ngFor="let item of getSalientPrice(product.prices)" class="flex flex-col items-start">
+            <div *ngFor="let item of productUtil.getSalientPrice(product.prices)" class="flex flex-col items-start">
               <span class="text-md font-medium text-gray-700">{{item.description}}:</span>
               <span class="text-2xl font-bold text-gray-900">{{item.currency}} {{item.price | number:'1.2-5'}}</span>
             </div>

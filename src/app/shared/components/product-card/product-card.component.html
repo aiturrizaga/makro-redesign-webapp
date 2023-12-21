@@ -1,11 +1,11 @@
 <div *ngIf="product"
      class="bg-white h-full flex flex-col rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg">
   <img class="h-40 rounded w-full object-contain object-center mt-4 mb-6 cursor-pointer"
-       [src]="product.thumbnail" [alt]="product.name" [routerLink]="['products', product.slug]">
+       [src]="product.thumbnail" [alt]="product.name" [routerLink]="['/products', product.slug]">
   <div class="px-4 flex-1">
     <h3 class="tracking-widest text-gray-400 text-xs font-medium title-font">{{product.brand | uppercase}}</h3>
     <h2 class="text-lg text-gray-900 font-medium title-font">
-      <a [routerLink]="['products', product.slug]">{{product.name}}</a>
+      <a [routerLink]="['/products', product.slug]">{{product.name}}</a>
     </h2>
     <h4 class="text-sm text-gray-800 font-medium">{{product.presentation}}</h4>
     <div class="flex items-center mt-1.5 mb-2.5">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="flex flex-col" *ngIf="product.prices && product.prices.length > 0">
-      <div *ngFor="let item of getFlatPrices(product.prices)" class="flex items-start justify-between mb-1">
+      <div *ngFor="let item of productUtil.getFlatPrices(product.prices)" class="flex items-start justify-between mb-1">
         <div class="text-sm font-bold text-gray-500"
              *ngIf="item.visible"
              [ngClass]="{'text-blue-700': item.description === 'OH'}">
@@ -63,7 +63,7 @@
   </div>
   <div class="px-6 pt-4 pb-2 mb-2">
     <div *ngIf="product.prices && product.prices.length > 0">
-      <div *ngFor="let item of getSalientPrice(product.prices)" class="flex flex-col items-start">
+      <div *ngFor="let item of productUtil.getSalientPrice(product.prices)" class="flex flex-col items-start">
         <span class="text-xs font-medium text-gray-700">{{item.description}}:</span>
         <span class="text-lg font-bold text-gray-900">{{item.currency}} {{item.price | number:'1.2-5'}}</span>
       </div>

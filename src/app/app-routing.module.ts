@@ -5,6 +5,8 @@ import { HomePage } from './modules/home/home.page';
 import { ShopCartPage } from './modules/shop-cart/shop-cart.page';
 import { SearchPage } from './modules/search/search.page';
 import { ProductPage } from './modules/product/product.page';
+import { CategoryPage } from './modules/category/category.page';
+import { CategoryDetailPage } from './modules/category/detail/category-detail.page';
 
 const routes: Routes = [
   {
@@ -26,6 +28,16 @@ const routes: Routes = [
       {
         path: 'products/:slug',
         component: ProductPage
+      },
+      {
+        path: 'categories',
+        component: CategoryPage,
+        children: [
+          {
+            path: ':slug',
+            component: CategoryDetailPage
+          }
+        ]
       }
     ]
   }
