@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartItem } from '../../../core/interfaces';
 import { Product } from '../../../core/interfaces/product.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './product-card.component.html'
 })
 export class ProductCardComponent {
@@ -35,7 +36,7 @@ export class ProductCardComponent {
     const cartItem: CartItem = {
       productId: this.product.id,
       productName: this.product.name,
-      productImage: this.product.image,
+      productImage: this.product.thumbnail,
       productPresentation: this.product.presentation,
       price: price,
       quantity: this.quantity,

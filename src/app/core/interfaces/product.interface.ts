@@ -4,8 +4,9 @@ export interface Product {
   name: string;
   slug: string;
   presentation: string;
-  image: string;
+  thumbnail: string;
   rating: number;
+  image: ProductImage
   prices: ProductPrice[];
 }
 
@@ -17,4 +18,10 @@ export interface ProductPrice {
   salient: boolean;
   visible: boolean;
   default: boolean;
+}
+
+export interface ProductImage {
+  large?: string;
+  medium?: string;
+  small?: string;
 }

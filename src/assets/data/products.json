@@ -5,8 +5,11 @@
     "name": "Cerveza CORONA Extra",
     "slug": "cerveza-corona-extra",
     "presentation": "Pack de 6 unids. x 330 ml. c/u",
-    "image": "https://files.makro.pe/product/image/BA3_PnnNhLR.png",
+    "thumbnail": "https://files.makro.pe/product/image/BA3_PnnNhLR.png",
     "rating": 5,
+    "image": {
+      "large": "https://plazavea.vteximg.com.br/arquivos/ids/27363412-650-650/755306.jpg"
+    },
     "prices": [
       {
         "currency": "S/",
@@ -34,8 +37,11 @@
     "name": "Gaseosa INKA KOLA",
     "slug": "gaseosa-inka-kola",
     "presentation": "Pack de 12 unids. x 600 ml. c/u",
-    "image": "https://files.makro.pe/product/image/8_o7AdXEA.png",
+    "thumbnail": "https://files.makro.pe/product/image/8_o7AdXEA.png",
     "rating": 5,
+    "image": {
+      "large": "https://socialdrinks.pe/wp-content/uploads/2023/09/1881_INCA20KOLA-1-583x583.png"
+    },
     "prices": [
       {
         "currency": "S/",
@@ -54,8 +60,11 @@
     "name": "Azúcar rubia DULFINA",
     "slug": "azucar-rubia-dulfina",
     "presentation": "Bolsa x 5 Kg.",
-    "image": "https://files.makro.pe/product/image/6_lFn8tFS.png",
+    "thumbnail": "https://files.makro.pe/product/image/6_lFn8tFS.png",
     "rating": 5,
+    "image": {
+      "large": "https://plazavea.vteximg.com.br/arquivos/ids/26947513-1000-1000/20084094.jpg"
+    },
     "prices": [
       {
         "currency": "S/",
@@ -83,8 +92,11 @@
     "name": "Papel higiénico SUAVE Resistemax",
     "slug": "papel-higienico-suave-resistemax",
     "presentation": "Pqte. de 48 unids.",
-    "image": "https://files.makro.pe/product/image/BA5_de5bpyg.png",
+    "thumbnail": "https://files.makro.pe/product/image/BA5_de5bpyg.png",
     "rating": 5,
+    "image": {
+      "large": "https://plazavea.vteximg.com.br/arquivos/ids/6252217-650-650/20112491.jpg"
+    },
     "prices": [
       {
         "currency": "S/",
@@ -112,8 +124,11 @@
     "name": "Arroz extra nir FARAON Añejo",
     "slug": "arroz-extra-nir-faraon-anejo",
     "presentation": "Saco x 50 Kg.",
-    "image": "https://files.makro.pe/product/image/BA2_AwrQKdc.png",
+    "thumbnail": "https://files.makro.pe/product/image/BA2_AwrQKdc.png",
     "rating": 5,
+    "image": {
+      "large": "https://corporacionliderperu.com/43477-large_default/arroz-faraon-anejo-extra-x-50-kg-exo-igv.jpg"
+    },
     "prices": [
       {
         "currency": "S/",
