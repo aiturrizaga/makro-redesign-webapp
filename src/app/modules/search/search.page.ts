@@ -7,6 +7,7 @@ import { ProductCardComponent } from '../../shared/components/product-card/produ
 import { ShopCartService } from '../../core/services/shop-cart.service';
 import { CartItem } from '../../core/interfaces';
 import { ActivatedRoute } from '@angular/router';
+import { ProductUtil } from '../../shared/utils/product.util';
 
 @Component({
   selector: 'app-search',
@@ -64,17 +65,22 @@ export class SearchPage implements OnInit {
 
   constructor(private productService: ProductService,
               private shopCartService: ShopCartService,
+              private productUtil: ProductUtil,
               private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(res => this.query = res['q']);
+    this.route.queryParams.subscribe(res => {
+      this.query = res['q'];
+      if (this.query) {
+        this.getProducts();
+      }
+    });
   }
 
   ngOnInit(): void {
     window.scroll(0, 0);
-    this.getProducts();
   }
 
   getProducts(): void {
-    this.productService.getAll().subscribe(res => this.products = res);
+    this.productService.getAll().subscribe(res => this.products = this.productUtil.randomSort(res));
   }
 
   saveCartItem(event: CartItem): void {
