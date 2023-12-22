@@ -12,4 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class LayoutComponent {
 
+  public activeModal: boolean = true;
+
+  toggleModal() {
+    this.activeModal = !this.activeModal;
+  }
+
 }
