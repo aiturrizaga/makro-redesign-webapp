@@ -7,4 +7,5 @@ export interface Category {
   icon?: string;
   shortcut?: boolean;
   featured?: boolean;
+  shortDescription?: string;
 }

@@ -101,10 +101,10 @@
             </button>
           </li>
           <li *ngFor="let category of shortcutCategories">
-            <a routerLink="" class="text-primary">{{ category.name }}</a>
+            <a [routerLink]="['/categorias', category.slug]" class="text-primary">{{ category.name }}</a>
           </li>
           <li>
-            <a routerLink="" class="text-primary">Tiendas</a>
+            <a routerLink="tiendas" class="text-primary">Tiendas</a>
           </li>
         </ul>
       </div>
@@ -112,63 +112,14 @@
 
     <div [ngClass]="{'hidden': !activeCategoryButton}" class="mt-1 bg-white border-gray-200 shadow-sm border-y">
       <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 sm:grid-cols-2 md:grid-cols-3 md:px-6">
-        <ul>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Tarjeta Oh!</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Electrodomesticos</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Marcas propias</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Hogar</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Reposteria</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Refrigerados</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Menestras</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Lacteos</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
-            </a>
-          </li>
-          <li>
-            <a routerLink="" class="block p-3 rounded-lg hover:bg-info hover:text-primary">
-              <div class="font-semibold">Bebidas</div>
-              <span class="text-sm text-gray-500">Connect with third-party tools that you're already using.</span>
+        <ul *ngFor="let categories of featuredCategories">
+          <li *ngFor="let featured of categories">
+            <a [routerLink]="['/categorias', featured.slug]"
+               routerLinkActive="bg-info text-primary"
+               (click)="activeCategoryButton = !activeCategoryButton"
+               class="block p-3 rounded-lg hover:bg-info hover:text-primary">
+              <div class="font-semibold">{{featured.name}}</div>
+              <span class="text-sm text-gray-500">{{featured.shortDescription}}</span>
             </a>
           </li>
         </ul>

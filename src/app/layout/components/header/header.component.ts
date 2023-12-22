@@ -1,5 +1,5 @@
 import { Component, effect, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ShopCartService } from '../../../core/services/shop-cart.service';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -14,7 +14,8 @@ import { CategoryService } from '../../../core/services/category.service';
     RouterLink,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterLinkActive
   ],
   templateUrl: './header.component.html',
   animations: [
@@ -51,7 +52,7 @@ export class HeaderComponent implements OnInit {
 
   public searchText: FormControl = new FormControl<string>('');
 
-  public featuredCategories: Category[] = [];
+  public featuredCategories: Category[][] = [];
   public shortcutCategories: Category[] = [];
 
   constructor(private shopCartService: ShopCartService,
@@ -68,13 +69,17 @@ export class HeaderComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoryService.getFeatured().subscribe(res => this.featuredCategories = res);
+    this.categoryService.getFeatured().subscribe(res => {
+      if (res) {
+        this.featuredCategories = [res.slice(0,3), res.slice(3,6), res.slice(6,9)];
+      }
+    });
     this.categoryService.getShortcut().subscribe(res => this.shortcutCategories = res);
   }
 
   goToSearchPage(): void {
     const query = this.searchText.value;
-    this.router.navigate(['search'], {queryParams: {q: query}}).then();
+    this.router.navigate(['buscar'], {queryParams: {q: query}}).then();
   }
 
   toggleCategoryButton(): void {

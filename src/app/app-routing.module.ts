@@ -7,6 +7,7 @@ import { SearchPage } from './modules/search/search.page';
 import { ProductPage } from './modules/product/product.page';
 import { CategoryPage } from './modules/category/category.page';
 import { CategoryDetailPage } from './modules/category/detail/category-detail.page';
+import { ShopPage } from './modules/shop/shop.page';
 
 const routes: Routes = [
   {
@@ -18,19 +19,23 @@ const routes: Routes = [
         component: HomePage
       },
       {
-        path: 'cart',
+        path: 'carrito-compras',
         component: ShopCartPage
       },
       {
-        path: 'search',
+        path: 'buscar',
         component: SearchPage
       },
       {
-        path: 'products/:slug',
+        path: 'productos/:slug',
         component: ProductPage
       },
       {
-        path: 'categories',
+        path: 'tiendas',
+        component: ShopPage
+      },
+      {
+        path: 'categorias',
         component: CategoryPage,
         children: [
           {

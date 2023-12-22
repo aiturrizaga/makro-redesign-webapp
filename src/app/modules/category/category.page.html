@@ -10,7 +10,7 @@
       <ul
         class="flex-column space-y space-y-2 text-sm font-medium text-gray-500 md:me-4 mb-4 md:mb-0">
         <li *ngFor="let category of categories">
-          <a [routerLink]="['/categories', category.slug]"
+          <a [routerLink]="['/categorias', category.slug]"
              routerLinkActive="text-white bg-primary active"
              #categoryLink="routerLinkActive"
              [ngClass]="{'hover:text-gray-900 bg-gray-50 hover:bg-gray-200': !categoryLink.isActive}"

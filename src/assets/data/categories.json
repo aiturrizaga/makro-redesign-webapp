@@ -7,7 +7,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Grandes ofertas y descuentos pagando con tu tarjeta Oh"
   },
   {
     "id": "00ae789a-d01f-41eb-a4d5-fbaf6dba81b4",
@@ -17,7 +18,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Encuentra todo lo que necesites para tu hogar"
   },
   {
     "id": "edb60c26-8ae1-466f-990d-988fda82b8b7",
@@ -27,7 +29,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Diversidad y precio en las diferentes marcas"
   },
   {
     "id": "b6856d0a-e10f-4147-a99b-a8542a0c2495",
@@ -37,7 +40,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Tus electrodomesticos para el hogar o tu negocio"
   },
   {
     "id": "753a0718-5297-459e-882e-3cdd68b8bba4",
@@ -47,7 +51,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Todo lo que necesitas para preparar tus postres"
   },
   {
     "id": "3c2d8e35-ecfc-4506-acd0-2a6f1f3b6e26",
@@ -57,7 +62,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Las mejores leches al alcance de tu bolsillo"
   },
   {
     "id": "0bd77c06-5dc1-4862-997c-71066b321168",
@@ -67,7 +73,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Disfruta de la calidad y precio de nuestras marcas"
   },
   {
     "id": "ff7e6a3c-83c3-43a0-8dca-b947d663bf90",
@@ -77,7 +84,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Los mejores productos al alcance de tus manos"
   },
   {
     "id": "4c4425e2-63be-4b6d-b691-536e4e523cf7",
@@ -87,7 +95,8 @@
     "banner": "",
     "icon": "",
     "shortcut": false,
-    "featured": true
+    "featured": true,
+    "shortDescription": "Refrescate con nuestras ofertas en bebidas"
   },
   {
     "id": "aa19a527-01d7-4ac3-bdbe-2167647ce44f",
@@ -97,7 +106,8 @@
     "banner": "",
     "icon": "",
     "shortcut": true,
-    "featured": true
+    "featured": false,
+    "shortDescription": ""
   },
   {
     "id": "ed7fd939-280c-4770-8fb7-1b268b438c5b",
@@ -107,6 +117,7 @@
     "banner": "",
     "icon": "",
     "shortcut": true,
-    "featured": true
+    "featured": false,
+    "shortDescription": ""
   }
 ]
